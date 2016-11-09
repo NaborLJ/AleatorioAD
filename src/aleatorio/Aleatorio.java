@@ -22,8 +22,8 @@ public class Aleatorio {
 
         RandomAccessFile random = new RandomAccessFile(texto, "rw");
         for (int i = 0; i < code.length; i++) {
-            random.writeChars(String.format("%-3s", code[i].replace(" ", "*")));
-            random.writeChars(String.format("%-10s", descricion[i].replace(" ", "*")));
+            random.writeChars(String.format("%-3s", code[i]));
+            random.writeChars(String.format("%-10s", descricion[i]));
             random.writeDouble(prices[i]);
         }
         String auxCode = "";
@@ -39,7 +39,7 @@ public class Aleatorio {
             auxDesc = auxDesc + random.readChar();
 
         }
-        Product auxP = new Product(auxCode.replace("*", ""), auxDesc.replace("*", ""), random.readDouble());
+        Product auxP = new Product(auxCode.replace(" ",""), auxDesc.replace(" ",""), random.readDouble());
         System.out.print(auxP);
 
     
